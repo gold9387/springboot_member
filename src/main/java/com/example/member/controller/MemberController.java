@@ -3,7 +3,6 @@ package com.example.member.controller;
 import com.example.member.dto.MemberDTO;
 import com.example.member.service.MemberService;
 import lombok.RequiredArgsConstructor;
-import org.apache.catalina.users.SparseUserDatabase;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -73,7 +72,7 @@ public class MemberController {
     @PostMapping("/member/update")
     public String update(@ModelAttribute MemberDTO memberDTO) {
         memberService.update(memberDTO);
-        return "redirect:/member/" + memberDTO.getId();
+        return "login";
     }
 
     @GetMapping("/member/delete/{id}")
@@ -93,11 +92,6 @@ public class MemberController {
         System.out.println("memberEmail = " + memberEmail);
         String checkResult = memberService.emailCheck(memberEmail);
         return checkResult;
-//        if (checkResult != null) {
-//            return "ok";
-//        } else {
-//            return "no";
-//        }
     }
 }
 
