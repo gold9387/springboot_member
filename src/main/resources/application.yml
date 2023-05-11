@@ -1,0 +1,23 @@
+server:
+  port: 9090
+
+# database 연동 설정
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    # database 이름
+    url: jdbc:h2:tcp://localhost/~/member
+    # 사용자 계정 정보
+    username: member
+    password: 1234
+
+  thymeleaf:
+    cache: false
+
+  # spring data jpa 설정
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    open-in-view: false
+    show-sql: true
+    hibernate:
+      ddl-auto: update
